@@ -1,0 +1,32 @@
+# Search engines and AI assistants answering a user's question may read the site.
+User-agent: *
+Allow: /
+Disallow: /tools/
+
+# Crawlers that only collect content to train AI models are not allowed.
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: anthropic-ai
+User-agent: CCBot
+User-agent: Applebot-Extended
+User-agent: Bytespider
+User-agent: Amazonbot
+User-agent: meta-externalagent
+User-agent: Meta-ExternalAgent
+User-agent: FacebookBot
+User-agent: Diffbot
+User-agent: ImagesiftBot
+User-agent: Omgilibot
+User-agent: omgili
+User-agent: cohere-ai
+User-agent: cohere-training-data-crawler
+User-agent: AI2Bot
+User-agent: Ai2Bot-Dolma
+User-agent: Timpibot
+User-agent: Kangaroo Bot
+User-agent: TikTokSpider
+User-agent: Scrapy
+User-agent: img2dataset
+Disallow: /
+
+Sitemap: https://nikhilraj.co.in/sitemap.xml

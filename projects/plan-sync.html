@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-2y3BFOywjpH5ztESn5ZbFcE5j5Bi09aAn/C+HqC1ujg='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="index, follow">
+  <title>Plan Sync · Nikhil Raj</title>
+  <meta name="description" content="How a weekend timetable project became a campus app with 15,000+ accounts, and the backend redesign that cut API latency by 76%.">
+  <link rel="canonical" href="https://nikhilraj.co.in/projects/plan-sync.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nikhilraj.co.in/projects/plan-sync.html">
+  <meta property="og:title" content="Plan Sync · Nikhil Raj">
+  <meta property="og:description" content="I turn side projects into software people open every day. Co-founder of Plan Sync (15,000+ accounts).">
+  <meta property="og:image" content="https://nikhilraj.co.in/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#eef0f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1113" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/instrument-serif.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/fonts.css">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <script>
+    document.documentElement.classList.remove('no-js');
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<svg class="sprite" width="0" height="0" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M4.5 11.5l7-7M6 4.5h5.5V10" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-down" viewBox="0 0 16 16"><path d="M8 3v10M3.5 8.5L8 13l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 16 16"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 16 16"><circle cx="8" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6L13 13M3 13l1.4-1.4M11.6 4.4L13 3" stroke="currentColor" stroke-width="1.4"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 16 16"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></symbol>
+  <symbol id="i-in" viewBox="0 0 16 16"><path fill="currentColor" d="M0 1.15C0 .52.52 0 1.18 0h13.64C15.48 0 16 .52 16 1.15v13.7c0 .63-.52 1.15-1.18 1.15H1.18C.52 16 0 15.48 0 14.85V1.15zm4.94 12.24V6.17H2.54v7.22h2.4zM3.74 5.18c.84 0 1.36-.55 1.36-1.25-.02-.71-.52-1.25-1.35-1.25-.82 0-1.36.54-1.36 1.25 0 .7.52 1.25 1.33 1.25h.02zm4.9 8.21V9.36c0-.22.02-.43.08-.59.18-.43.57-.88 1.23-.88.87 0 1.22.66 1.22 1.63v3.87h2.4V9.25c0-2.22-1.18-3.25-2.76-3.25-1.27 0-1.84.7-2.16 1.19v.03h-.02l.02-.03V6.17h-2.4c.03.68 0 7.22 0 7.22h2.4z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 16 16"><path d="M3 1.8v12.4c0 .4.4.6.7.4l10.4-6.2a.5.5 0 0 0 0-.8L3.7 1.4c-.3-.2-.7 0-.7.4z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 16 16"><rect x="1.5" y="3" width="13" height="10" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2 4l6 5 6-5" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol>
+  <symbol id="i-file" viewBox="0 0 16 16"><path d="M4 1.5h5.5L12.5 4.5v10h-8.5z M9.5 1.5v3h3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M8 7v5M6 10l2 2 2-2" fill="none" stroke="currentColor" stroke-width="1.4"/></symbol>
+</svg>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Nikhil Raj, home">nikhil <i>raj</i></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="/#work">Work</a>
+      <a href="/#experience">Experience</a>
+      <a href="/#community">Community</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <div class="top-tools">
+      <a class="icon-btn" href="https://github.com/NiikhilRaj" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg><use href="#i-gh"/></svg></a>
+      <a class="icon-btn" href="https://linkedin.com/in/nikhilraj16" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg><use href="#i-in"/></svg></a>
+      <a class="icon-btn" href="mailto:nikhilraj13733@gmail.com" aria-label="Email" title="nikhilraj13733@gmail.com"><svg><use href="#i-mail"/></svg></a>
+      <button class="icon-btn" id="open-palette" type="button" aria-label="Open quick navigation" title="Quick navigation (Ctrl/⌘ K)">⌘K</button>
+      <button class="icon-btn" id="theme" type="button" aria-label="Toggle dark mode">
+        <svg class="theme-moon"><use href="#i-moon"/></svg><svg class="theme-sun"><use href="#i-sun"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap">
+    <p class="crumbs mono muted"><a href="/#work">← Work</a> / Case study</p>
+    <section class="case-hero">
+      <h1>Plan Sync</h1>
+      <p class="lede">A timetable app for college students. It started as a weekend side project and grew into the app thousands of students at KIIT open before their first class. I co-founded it, built its first backend, and later rebuilt both the backend and the UI.</p>
+      <dl class="meta">
+        <div><dt class="mono">Role</dt><dd>Co-founder, backend, UI, maintainer</dd></div>
+        <div><dt class="mono">Timeline</dt><dd>Sep 2023 to now</dd></div>
+        <div><dt class="mono">Stack</dt><dd>Flutter, Supabase, Postgres, GCP</dd></div>
+        <div><dt class="mono">Links</dt><dd><a href="https://play.google.com/store/apps/details?id=in.co.cardlink.plansync" target="_blank" rel="noopener">Play Store</a> · <a href="https://github.com/plansync-in/plan-sync" target="_blank" rel="noopener">GitHub</a></dd></div>
+      </dl>
+    </section>
+
+    <ul class="numbers reveal" aria-label="Plan Sync in numbers">
+      <li><span class="num" data-count="15000" data-suffix="+">15,000+</span><span class="num-label">user accounts</span></li>
+      <li><span class="num" data-count="3500" data-suffix="+">3,500+</span><span class="num-label">daily active users</span></li>
+      <li><span class="num" data-count="9500" data-suffix="+">9,500+</span><span class="num-label">monthly active users</span></li>
+      <li><span class="num" data-count="4.7" data-decimals="1" data-suffix="★">4.7★</span><span class="num-label">from 467 Play Store reviews</span></li>
+    </ul>
+
+    <section class="section">
+      <div class="section-head reveal"><span class="mono">The problem</span><h2>Where is my next class?</h2></div>
+      <div class="section-body"><div class="prose reveal">
+        <p>Timetables at a big university change by section, by elective and by week, and they usually live in a PDF or a group chat. Plan Sync puts each student's own schedule on their phone, kept up to date by the community: students add their timetables and report anything that's wrong.</p>
+        <p>What began as a weekend project for friends had real pull, so I pushed to <strong>productize it early</strong> and took on the roadmap, feature decisions and outreach to get it in front of the rest of campus.</p>
+      </div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head reveal"><span class="mono">Backend</span><h2>From zero to 1,000, then faster</h2></div>
+      <div class="section-body"><div class="prose reveal">
+        <p>I designed and built the <strong>first database and backend on Supabase and GCP</strong>, which carried the app to its first 1,000 users.</p>
+        <p>As usage grew, I redesigned the backend for speed: <strong>database indexes</strong> on the hot queries, <strong>asynchronous processing</strong> for work that didn't need to block a request, and <strong>response caching</strong> for data many students request at once.</p>
+        <p class="callout">API query latency dropped by 76%.</p>
+      </div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head reveal"><span class="mono">Product &amp; UI</span><h2>An app that works on campus Wi-Fi</h2></div>
+      <div class="section-body"><div class="prose reveal">
+        <p>I designed the current cross-platform UI and led three features: <strong>electives</strong>, so a schedule reflects the courses a student actually picked; <strong>search</strong>; and <strong>network-error handling</strong>, so the app degrades gracefully instead of failing on a flaky connection.</p>
+      </div></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head reveal"><span class="mono">Open source</span><h2>Maintaining it in the open</h2></div>
+      <div class="section-body"><div class="prose reveal">
+        <p>Plan Sync is open source. I'm the <strong>#2 contributor, with 49 of 576 commits</strong>, and as a maintainer I've reviewed and merged 8 pull requests from other contributors.</p>
+        <p><a class="arrow-link" href="https://github.com/plansync-in/plan-sync" target="_blank" rel="noopener">github.com/plansync-in/plan-sync <svg><use href="#i-arrow"/></svg></a></p>
+      </div></div>
+    </section>
+
+    <div class="next">
+      <span class="mono muted">Up next</span>
+      <a href="/#work">More of my work →</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap mono">
+    <span>© <span id="year">2026</span> Nikhil Raj</span>
+    <span class="foot-links"><a href="https://github.com/NiikhilRaj" target="_blank" rel="noopener">GitHub</a><a href="https://linkedin.com/in/nikhilraj16" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:nikhilraj13733@gmail.com">Email</a></span>
+  </div>
+</footer>
+
+<div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Quick navigation">
+  <div class="palette-box">
+    <input id="palette-input" type="text" placeholder="Jump to a section, project or link…" autocomplete="off" spellcheck="false">
+    <ul id="palette-list"></ul>
+  </div>
+</div>
+
+<script src="/assets/main.js" defer></script>
+</body>
+</html>
