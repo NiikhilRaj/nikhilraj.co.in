@@ -94,7 +94,7 @@
     ['GitHub', 'https://github.com/NiikhilRaj', 'link'],
     ['LinkedIn', 'https://linkedin.com/in/nikhilraj16', 'link'],
     ['Email me', 'mailto:nikhilraj13733@gmail.com', 'link'],
-    ['Download resume (PDF)', '/assets/Nikhil_Raj_Resume.pdf', 'link'],
+    ['Resume', 'https://docs.google.com/document/d/1LQzkYUAQ8d1en3Uep0_bGfKdRoMT5BG5hDGg9HIAHIo/edit?tab=t.0', 'link'],
     ['Toggle dark mode', '#theme', 'action'],
   ];
   const pal = $('#palette');
@@ -143,7 +143,7 @@
     if (!item) return;
     close();
     if (item[2] === 'action') { themeBtn?.click(); return; }
-    if (item[1].startsWith('http') || item[1].endsWith('.pdf')) window.open(item[1], '_blank', 'noopener');
+    if (item[1].startsWith('http')) window.open(item[1], '_blank', 'noopener');
     else location.href = item[1];
   };
 

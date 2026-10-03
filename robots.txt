@@ -1,7 +1,6 @@
 # Search engines and AI assistants answering a user's question may read the site.
 User-agent: *
 Allow: /
-Disallow: /tools/
 
 # Crawlers that only collect content to train AI models are not allowed.
 User-agent: GPTBot
